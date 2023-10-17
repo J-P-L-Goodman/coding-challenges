@@ -79,3 +79,7 @@ if __name__ == "__main__":
         count_words_in_file(args.file)
     elif args.characters:
         count_characters_in_file(args.file)
+    else:
+        count_bytes_in_file(args.file)
+        count_lines_in_file(args.file)
+        count_words_in_file(args.file)
