@@ -7,7 +7,7 @@ This is a repo for various coding challenge applications. The goal is to build u
 - wc-tool:
   - This challenge is to build your own version of the Unix command line tool wc.
 
-## Challenges
+## Testing
 
 To run the test in each challenge directory you can use the command:
 
