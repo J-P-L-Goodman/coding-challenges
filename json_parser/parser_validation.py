@@ -1,0 +1,30 @@
+from lexer import (
+    tokenize,
+    TOKEN_COLON,
+    TOKEN_COMMA,
+    TOKEN_FALSE,
+    TOKEN_LBRACE,
+    TOKEN_LBRACKET,
+    TOKEN_NULL,
+    TOKEN_NUMBER,
+    TOKEN_RBRACE,
+    TOKEN_RBRACKET,
+    TOKEN_STRING,
+    TOKEN_TRUE,
+)
+
+
+def is_valid_json(json_str):
+    try:
+        tokens = tokenize(json_str)
+        stack = []
+        for token_type, value in tokens:
+            if token_type in {TOKEN_LBRACE, TOKEN_LBRACKET}:
+                stack.append(token_type)
+            elif token_type in {TOKEN_RBRACE, TOKEN_RBRACKET}:
+                if not stack or stack[-1] != token_type - 1:
+                    return False
+                stack.pop()
+        return not stack
+    except ValueError:
+        return False
