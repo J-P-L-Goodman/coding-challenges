@@ -23,4 +23,4 @@ def read_json_file(file_path):
 
 
 if __name__ == "__main__":
-    main("tests/step1/valid.json")
+    main("tests/step2/invalid2.json")

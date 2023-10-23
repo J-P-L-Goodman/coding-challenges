@@ -18,6 +18,7 @@ def is_valid_json(json_str):
     try:
         tokens = tokenize(json_str)
         stack = []
+        last_token_type = None
         for token_type, value in tokens:
             if token_type in {TOKEN_LBRACE, TOKEN_LBRACKET}:
                 stack.append(token_type)
@@ -25,6 +26,18 @@ def is_valid_json(json_str):
                 if not stack or stack[-1] != token_type - 1:
                     return False
                 stack.pop()
+
+            if last_token_type:
+                if last_token_type == TOKEN_COMMA:
+                    if (
+                        token_type == TOKEN_LBRACE
+                        or token_type == TOKEN_RBRACE
+                        or token_type == TOKEN_LBRACKET
+                        or token_type == TOKEN_RBRACKET
+                        or token_type == TOKEN_COLON
+                    ):
+                        return False
+            last_token_type = token_type
         return not stack
     except ValueError:
         return False
