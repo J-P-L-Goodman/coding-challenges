@@ -17,21 +17,15 @@ class TestParserValidation(unittest.TestCase):
         self.assertTrue(is_valid_json(valid_json))
 
     def test_step_2_invalid_json_1(self):
-        print("here 4")
         valid_json = '{"key":"value",}'
-        print(is_valid_json(valid_json))
         self.assertFalse(is_valid_json(valid_json))
 
     def test_step_2_invalid_json_2(self):
-        print("here 4")
         valid_json = '{"key":}'
-        print(is_valid_json(valid_json))
         self.assertFalse(is_valid_json(valid_json))
 
     def test_step_2_invalid_json_3(self):
-        print("here 4")
         valid_json = '{"key": "value",key2: "value"}'
-        print(is_valid_json(valid_json))
         self.assertFalse(is_valid_json(valid_json))
 
 
