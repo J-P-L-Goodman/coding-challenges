@@ -12,10 +12,8 @@ TOKEN_RBRACKET = 11
 
 
 def tokenize(json_str):
-    # Define a list of tokens
     tokens = []
 
-    # Tokenizing logic
     i = 0
     while i < len(json_str):
         char = json_str[i]
@@ -66,5 +64,4 @@ def tokenize(json_str):
             i += 4
         else:
             raise ValueError(f"Invalid character: {char}")
-
     return tokens

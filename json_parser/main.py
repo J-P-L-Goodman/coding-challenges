@@ -1,6 +1,5 @@
-# main.py
 import sys
-from parser_validation import is_valid_json  # Import the JSON validation logic
+from parser_validation import is_valid_json
 
 
 def main(file_path):
@@ -23,4 +22,4 @@ def read_json_file(file_path):
 
 
 if __name__ == "__main__":
-    main("tests/step2/invalid2.json")
+    main("tests/step4/valid.json")
