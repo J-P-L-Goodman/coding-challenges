@@ -4,8 +4,10 @@ This is a repo for various coding challenge applications. The goal is to build u
 
 ## Challenges
 
-- wc-tool:
+- wc_tool:
   - This challenge is to build your own version of the Unix command line tool wc.
+- json_parser:
+  - This challenge was to build a program that takes in a json file and work out whether it is valid or not.
 
 ## Testing
 
