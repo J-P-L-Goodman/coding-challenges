@@ -28,13 +28,14 @@ def is_valid_json(json_str):
                 stack.pop()
 
             if last_token_type:
-                if last_token_type == TOKEN_COMMA:
+                if last_token_type == TOKEN_COMMA or last_token_type == TOKEN_COLON:
                     if (
                         token_type == TOKEN_LBRACE
                         or token_type == TOKEN_RBRACE
                         or token_type == TOKEN_LBRACKET
                         or token_type == TOKEN_RBRACKET
                         or token_type == TOKEN_COLON
+                        or token_type == TOKEN_COMMA
                     ):
                         return False
             last_token_type = token_type
