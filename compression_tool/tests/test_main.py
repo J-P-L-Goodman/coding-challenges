@@ -14,6 +14,15 @@ class TestCommandLineArguments(unittest.TestCase):
                 self.assertIn("333 occurances of X", output)
                 self.assertIn("223000 occurances of t", output)
 
+    def test_invalid_file_command_line_args(self):
+        with patch("sys.argv", ["main.py", "invalid.txt"]):
+            with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+                from main import main
+
+                main()
+                output = mock_stdout.getvalue()
+                self.assertIn("This is not a valid file", output)
+
 
 class TestHelperFunctions(unittest.TestCase):
     def test_number_of_occurances(self):

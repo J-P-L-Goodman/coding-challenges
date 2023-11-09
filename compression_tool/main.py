@@ -21,12 +21,15 @@ def main():
     if args.file is None:
         print("Invalid: File not valid")
     else:
-        with open(args.file, "rb") as file:
-            text = file.read().decode("utf-8")
+        try:
+            with open(args.file, "rb") as file:
+                text = file.read().decode("utf-8")
 
-    char_counts = number_of_occurances(text)
-    print(f"{char_counts.get('X')} occurances of X")
-    print(f"{char_counts.get('t')} occurances of t")
+            char_counts = number_of_occurances(text)
+            print(f"{char_counts.get('X')} occurances of X")
+            print(f"{char_counts.get('t')} occurances of t")
+        except:
+            print("This is not a valid file")
 
 
 if __name__ == "__main__":
