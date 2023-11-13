@@ -1,6 +1,7 @@
 import unittest
 from io import StringIO
 from unittest.mock import patch
+from main import number_of_occurances
 
 
 class TestCommandLineArguments(unittest.TestCase):
@@ -26,8 +27,6 @@ class TestCommandLineArguments(unittest.TestCase):
 
 class TestHelperFunctions(unittest.TestCase):
     def test_number_of_occurances(self):
-        from main import number_of_occurances
-
         text = "This is a test text."
         char_counts = number_of_occurances(text)
         self.assertEqual(char_counts.get("X"), None)
@@ -35,3 +34,7 @@ class TestHelperFunctions(unittest.TestCase):
         self.assertEqual(char_counts.get("i"), 2)
         self.assertEqual(char_counts.get("s"), 3)
         self.assertEqual(char_counts.get("."), 1)
+
+
+if __name__ == "__main__":
+    unittest.main()
